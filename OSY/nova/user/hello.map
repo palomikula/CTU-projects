@@ -1,0 +1,228 @@
+Archive member included to satisfy reference by file (symbol)
+
+libc.a(stdio.o)               hello.o (printf)
+libc.a(start.o)               (_start)
+libc.a(init.o)                libc.a(start.o) (__init)
+libc.a(console.o)             libc.a(stdio.o) (Console::vprintf(char const*, char*))
+libc.a(console_kernel.o)      libc.a(stdio.o) (vtable for Console_kernel)
+
+Discarded input sections
+
+ .text          0x0000000000000000       0x8a hello.o
+ .data          0x0000000000000000        0x0 hello.o
+ .bss           0x0000000000000000        0x0 hello.o
+ .eh_frame      0x0000000000000000       0xc4 hello.o
+ .group         0x0000000000000000        0xc libc.a(stdio.o)
+ .data          0x0000000000000000        0x0 libc.a(stdio.o)
+ .text.unlikely
+                0x0000000000000000        0x0 libc.a(stdio.o)
+ .eh_frame      0x0000000000000000       0xa0 libc.a(stdio.o)
+ .data          0x0000000000000000        0x0 libc.a(start.o)
+ .bss           0x0000000000000000        0x0 libc.a(start.o)
+ .data          0x0000000000000000        0x0 libc.a(init.o)
+ .bss           0x0000000000000000        0x0 libc.a(init.o)
+ .text.unlikely
+                0x0000000000000000        0x0 libc.a(init.o)
+ .eh_frame      0x0000000000000000       0x3c libc.a(init.o)
+ .data          0x0000000000000000        0x0 libc.a(console.o)
+ .bss           0x0000000000000000        0x0 libc.a(console.o)
+ .text.unlikely
+                0x0000000000000000        0x0 libc.a(console.o)
+ .eh_frame      0x0000000000000000      0x170 libc.a(console.o)
+ .group         0x0000000000000000        0x8 libc.a(console_kernel.o)
+ .data          0x0000000000000000        0x0 libc.a(console_kernel.o)
+ .bss           0x0000000000000000        0x0 libc.a(console_kernel.o)
+ .text.unlikely
+                0x0000000000000000        0x0 libc.a(console_kernel.o)
+ .eh_frame      0x0000000000000000       0x54 libc.a(console_kernel.o)
+ .text          0x0000000000000000      0x141 mem_alloc.o
+ .data          0x0000000000000000        0x0 mem_alloc.o
+ .bss           0x0000000000000000        0x8 mem_alloc.o
+ .rodata.str1.1
+                0x0000000000000000        0xc mem_alloc.o
+ .debug_info    0x0000000000000000      0x28a mem_alloc.o
+ .debug_abbrev  0x0000000000000000      0x1a8 mem_alloc.o
+ .debug_loc     0x0000000000000000      0x1c8 mem_alloc.o
+ .debug_aranges
+                0x0000000000000000       0x20 mem_alloc.o
+ .debug_ranges  0x0000000000000000       0x68 mem_alloc.o
+ .debug_line    0x0000000000000000       0xa0 mem_alloc.o
+ .debug_str     0x0000000000000000      0x14c mem_alloc.o
+ .comment       0x0000000000000000       0x2c mem_alloc.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 mem_alloc.o
+ .eh_frame      0x0000000000000000       0x90 mem_alloc.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000000002000                . = 0x2000
+                0x0000000000002000                stack_top = .
+                0x0000000000002074                . = (. + SIZEOF_HEADERS)
+
+.data           0x0000000000002080      0xf80
+                0x0000000000002080        0x1 BYTE 0x42
+ *(.rodata*)
+ .rodata.str1.1
+                0x0000000000002081       0x36 hello.o
+ .rodata.str1.1
+                0x00000000000020b7       0x11 libc.a(console.o)
+ .rodata        0x00000000000020c8      0x1e4 libc.a(console.o)
+ .rodata._ZTV14Console_kernel
+                0x00000000000022ac        0xc libc.a(console_kernel.o)
+                0x00000000000022ac                vtable for Console_kernel
+ *(.data*)
+ *(.bss*)
+ *fill*         0x00000000000022b8        0x8 
+ .bss           0x00000000000022c0       0x90 libc.a(stdio.o)
+                0x00000000000022c0                printf_lock
+                0x00000000000022e0                console
+                0x0000000000003000                . = ALIGN (0x1000)
+ *fill*         0x0000000000002350      0xcb0 
+
+.igot.plt       0x0000000000003000        0x0
+ .igot.plt      0x0000000000000000        0x0 hello.o
+
+.text           0x0000000000003000      0x88c
+ *(.text*)
+ .text.startup  0x0000000000003000      0x220 hello.o
+                0x0000000000003000                main
+ .text          0x0000000000003220       0x62 libc.a(stdio.o)
+                0x0000000000003220                panic
+                0x0000000000003250                printf
+                0x0000000000003280                __cxa_pure_virtual
+ .text.unlikely._ZN8Spinlock4lockEv
+                0x0000000000003282        0x0 libc.a(stdio.o)
+ *fill*         0x0000000000003282        0xe 
+ .text._ZN8Spinlock4lockEv
+                0x0000000000003290       0x19 libc.a(stdio.o)
+                0x0000000000003290                Spinlock::lock()
+ *fill*         0x00000000000032a9        0x7 
+ .text.startup  0x00000000000032b0       0x1a libc.a(stdio.o)
+ .text          0x00000000000032ca       0x11 libc.a(start.o)
+                0x00000000000032ca                _start
+ *fill*         0x00000000000032db        0x5 
+ .text          0x00000000000032e0       0x5b libc.a(init.o)
+                0x00000000000032e0                __init
+ *fill*         0x000000000000333b        0x5 
+ .text          0x0000000000003340      0x4fe libc.a(console.o)
+                0x0000000000003340                Console::print_number(unsigned long long, unsigned int, unsigned int, unsigned int)
+                0x00000000000034e0                Console::vprintf(char const*, char*)
+ *fill*         0x000000000000383e        0x2 
+ .text          0x0000000000003840       0x4c libc.a(console_kernel.o)
+                0x0000000000003840                Console_kernel::putc(int)
+
+.iplt           0x0000000000003890        0x0
+ .iplt          0x0000000000000000        0x0 hello.o
+
+.eh_frame_hdr   0x000000000000388c        0x0
+ .eh_frame_hdr  0x0000000000000000        0x0 hello.o
+
+.rel.dyn        0x000000000000388c        0x0
+ .rel.iplt      0x0000000000000000        0x0 hello.o
+ .rel.text.startup
+                0x0000000000000000        0x0 hello.o
+ .rel.text      0x0000000000000000        0x0 hello.o
+
+.init_array     0x000000000000388c        0x4
+                0x000000000000388c                PROVIDE (CTORS_L, .)
+ *(.init_array.65534 .ctors.00001)
+                0x000000000000388c                PROVIDE (CTORS_G, .)
+ *(.init_array.* .ctors.*)
+ .init_array.00101
+                0x000000000000388c        0x4 libc.a(stdio.o)
+ *(.init_array .ctors)
+                0x0000000000003890                PROVIDE (CTORS_E, .)
+LOAD hello.o
+LOAD libc.a
+LOAD mem_alloc.o
+OUTPUT(hello elf32-i386)
+
+.debug_info     0x0000000000000000     0x17bd
+ .debug_info    0x0000000000000000      0x81e hello.o
+ .debug_info    0x000000000000081e      0x68b libc.a(stdio.o)
+ .debug_info    0x0000000000000ea9       0x73 libc.a(start.o)
+ .debug_info    0x0000000000000f1c      0x143 libc.a(init.o)
+ .debug_info    0x000000000000105f      0x466 libc.a(console.o)
+ .debug_info    0x00000000000014c5      0x2f8 libc.a(console_kernel.o)
+
+.debug_abbrev   0x0000000000000000      0xa01
+ .debug_abbrev  0x0000000000000000      0x1a9 hello.o
+ .debug_abbrev  0x00000000000001a9      0x35b libc.a(stdio.o)
+ .debug_abbrev  0x0000000000000504       0x14 libc.a(start.o)
+ .debug_abbrev  0x0000000000000518       0xd7 libc.a(init.o)
+ .debug_abbrev  0x00000000000005ef      0x253 libc.a(console.o)
+ .debug_abbrev  0x0000000000000842      0x1bf libc.a(console_kernel.o)
+
+.debug_loc      0x0000000000000000      0xcf7
+ .debug_loc     0x0000000000000000      0x318 hello.o
+ .debug_loc     0x0000000000000318      0x129 libc.a(stdio.o)
+ .debug_loc     0x0000000000000441       0x26 libc.a(init.o)
+ .debug_loc     0x0000000000000467      0x81e libc.a(console.o)
+ .debug_loc     0x0000000000000c85       0x72 libc.a(console_kernel.o)
+
+.debug_aranges  0x0000000000000000       0xd8
+ .debug_aranges
+                0x0000000000000000       0x28 hello.o
+ .debug_aranges
+                0x0000000000000028       0x30 libc.a(stdio.o)
+ .debug_aranges
+                0x0000000000000058       0x20 libc.a(start.o)
+ .debug_aranges
+                0x0000000000000078       0x20 libc.a(init.o)
+ .debug_aranges
+                0x0000000000000098       0x20 libc.a(console.o)
+ .debug_aranges
+                0x00000000000000b8       0x20 libc.a(console_kernel.o)
+
+.debug_ranges   0x0000000000000000      0x420
+ .debug_ranges  0x0000000000000000      0x328 hello.o
+ .debug_ranges  0x0000000000000328       0x38 libc.a(stdio.o)
+ .debug_ranges  0x0000000000000360       0x30 libc.a(init.o)
+ .debug_ranges  0x0000000000000390       0x90 libc.a(console.o)
+
+.debug_line     0x0000000000000000      0x550
+ .debug_line    0x0000000000000000      0x161 hello.o
+ .debug_line    0x0000000000000161      0x11b libc.a(stdio.o)
+ .debug_line    0x000000000000027c       0x3c libc.a(start.o)
+ .debug_line    0x00000000000002b8       0x7f libc.a(init.o)
+ .debug_line    0x0000000000000337      0x166 libc.a(console.o)
+ .debug_line    0x000000000000049d       0xb3 libc.a(console_kernel.o)
+
+.debug_str      0x0000000000000000      0x651
+ .debug_str     0x0000000000000000       0xb6 hello.o
+                                         0xcf (size before relaxing)
+ .debug_str     0x00000000000000b6      0x47a libc.a(stdio.o)
+                                        0x4d9 (size before relaxing)
+ .debug_str     0x0000000000000530       0x54 libc.a(init.o)
+                                        0x182 (size before relaxing)
+ .debug_str     0x0000000000000584       0x94 libc.a(console.o)
+                                        0x2c6 (size before relaxing)
+ .debug_str     0x0000000000000618       0x39 libc.a(console_kernel.o)
+                                        0x2a1 (size before relaxing)
+
+.comment        0x0000000000000000       0x5f
+ .comment       0x0000000000000000       0x2b hello.o
+                                         0x2c (size before relaxing)
+ .comment       0x000000000000002b       0x34 libc.a(stdio.o)
+                                         0x35 (size before relaxing)
+ .comment       0x0000000000000000       0x35 libc.a(init.o)
+ .comment       0x0000000000000000       0x35 libc.a(console.o)
+ .comment       0x0000000000000000       0x35 libc.a(console_kernel.o)
+
+.note.GNU-stack
+                0x0000000000000000        0x0
+ .note.GNU-stack
+                0x0000000000000000        0x0 hello.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 libc.a(stdio.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 libc.a(init.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 libc.a(console.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 libc.a(console_kernel.o)
