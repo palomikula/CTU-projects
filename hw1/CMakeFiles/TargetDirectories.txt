@@ -1,4 +1,0 @@
-/home/palo/Documents/PDV/hw1/CMakeFiles/rebuild_cache.dir
-/home/palo/Documents/PDV/hw1/CMakeFiles/edit_cache.dir
-/home/palo/Documents/PDV/hw1/CMakeFiles/threadpool.bin.dir
-/home/palo/Documents/PDV/hw1/CMakeFiles/threadpool.dir
